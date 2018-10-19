@@ -1,6 +1,7 @@
-# active-campaign-php
+# Active Campaign PHP client
 
 PHP Client for Active Campaign
+
 Support API Rest v3 and V1 (No rest)
 
 
