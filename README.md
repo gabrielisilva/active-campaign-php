@@ -4,11 +4,17 @@ PHP Client for Active Campaign
 Support API Rest v3 and V1 (No rest)
 
 
-Use:
+## Install
 
-composer install
+> composer install
 
-Add Lead ->
+
+## Usage
+
+> Add Lead
+
+```
+<?php 
 
 $data['contact']['email'] = 'test@test.com.br';
 $data['contact']['org'] = 'test';
@@ -20,6 +26,7 @@ $data['contact']['2'] = 'test@test.com.br';
  $ac->setApiUrl('*')
  $ac->insertLead($data);
  
+```
  
  
 
