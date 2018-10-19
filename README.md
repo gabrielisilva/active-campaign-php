@@ -2,7 +2,7 @@
 
 PHP Client for Active Campaign
 
-Support API Rest v3 and V1 (No rest)
+Support API REST V3 and V1 (No REST)
 
 
 ## Install
