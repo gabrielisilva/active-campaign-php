@@ -4,6 +4,9 @@ PHP Client for Active Campaign
 
 Support API REST V3 and V1 (No REST)
 
+## Composer 
+
+> composer require felp/active-campaign-php
 
 ## Install
 
