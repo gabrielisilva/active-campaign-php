@@ -8,49 +8,41 @@ use GuzzleHttp\Client;
 
 class ActiveCampaign{
 
-	protected $url = "";
-	protected $apiKey = "";
+	protected $url;
+	protected $apiKey;
 	protected $contact;
     protected $client;
     protected $apiVersion;
 
-	function __construct(int $version){
+	function __construct(){
 
-		if($version <= 2){
-			$this->apiVersion = $version;
-			$this->url = "";
-			$this->client = new OldApiClient($this);
-		}
-        else{
-        	$this->apiVersion = $version;
-        	$this->client = new RestApiClient($this);
-        }
-
+        $this->setApiVersion(1);
 		$this->contact = new Contact($this);
 	
 	}
 
 	public function setApiUrl(String $url){
-		$this->apiUrl = $url;
+		$this->url = $url;
 	}
 
 	public function setApiKey(String $apiKey){
-		$this->apikey = $apiKey;
+		$this->apiKey = $apiKey;
 	}
 
 	public function setApiVersion(int $version){
 
-		if($version <= 2){
+		if($version == 1){
 			$this->client = new OldApiClient($this);
 		}
         else{
         	$this->client = new RestApiClient($this);
         }
 
+        $this->apiVersion = $version;
+
 	}
 
 	public function getApiVersion(){
-
 		return $this->apiVersion;
 	}
 
@@ -64,16 +56,15 @@ class ActiveCampaign{
 
 	public function baseUrl(){
 
-		if($this->apiVersion > 2){
-			return $this->url . $this->apiVersion . '/';
+		if($this->apiVersion == 1){
+			return $this->url;
 		}
 
-		return $this->url;
+    	return $this->url . '/' . $this->apiVersion . '/';
 	}
 
 	public function contact(){
 		return $this->contact;
 	}
 
-	
 }

@@ -11,7 +11,7 @@ class Contact{
     function __construct(ActiveCampaign $ac){
 
         $this->ac = $ac;
-
+     
         if($this->ac->getApiVersion() <= 2){
 
           $this->endpoints = $this->oldEndpoints();
@@ -31,18 +31,18 @@ class Contact{
 
     	    return $this->ac->client()->get($this->endpoints['get'], $id);
     }
-
+ 
     public function getAllContacts(){
 
     	  return $this->ac->client()->get($this->endpoints['list']);
     }
 
     public function add(array $data){
-
+ 
     	if(!isset($data['contact']['email']) || $data['contact']['email'] == ""){
     		return new \Exception('Email obrigatório');
     	}
-        return $this->ac->client()->post($this->endpoints['add'], $data);
+      return $this->ac->client()->post($this->endpoints['add'], $data);
     }
 
     public function sync(array $data){

@@ -12,6 +12,7 @@ class OldApiClient implements Http{
 	protected $ac;
 
     function __construct(ActiveCampaign $ac){
+
     	$this->ac = $ac;
     	$this->client = new Client([
     		'base_uri' => $ac->baseUrl(),
@@ -20,7 +21,7 @@ class OldApiClient implements Http{
     }
 
     public function post(String $endpoint, array $data){
-    
+
         try {
 
             $response = $this->client->request('POST', $this->buildEndpoint($endpoint),['form_params' => $data['contact']]);  
@@ -63,7 +64,7 @@ class OldApiClient implements Http{
             $id = "";
         }
 
-        return "?api_action=" . $endpoint . '&api_key=' . $this->ac->getApikey() . $id . '&api_output=json';
+        return "/admin/api.php/?api_action=" . $endpoint . '&api_key=' . $this->ac->getApikey() . $id . '&api_output=json';
     }
 
 
