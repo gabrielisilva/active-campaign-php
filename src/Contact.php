@@ -38,18 +38,11 @@ class Contact{
     }
 
     public function add(array $data){
- 
-    	if(!isset($data['contact']['email']) || $data['contact']['email'] == ""){
-    		return new \Exception('Email obrigatório');
-    	}
+     
       return $this->ac->client()->post($this->endpoints['add'], $data);
     }
 
     public function sync(array $data){
-
-      if(!isset($data['contact']['email']) || $data['contact']['email'] == ""){
-        return new \Exception('Email obrigatório');
-      }
 
       return $this->ac->client()->post($this->endpoints['sync'], $data);
     }

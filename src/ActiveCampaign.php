@@ -8,8 +8,8 @@ use GuzzleHttp\Client;
 
 class ActiveCampaign{
 
-	protected $url;
-	protected $apiKey;
+	protected $url = "https://involves.api-us1.com";
+	protected $apiKey = "60505754613f8e86af8ab233a866e16ee6ce6caee1938d055c56294644c5c80072636fc4";
 	protected $contact;
     protected $client;
     protected $apiVersion;

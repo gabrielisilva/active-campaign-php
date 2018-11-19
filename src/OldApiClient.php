@@ -15,16 +15,16 @@ class OldApiClient implements Http{
 
     	$this->ac = $ac;
     	$this->client = new Client([
-    		'base_uri' => $ac->baseUrl(),
+    		'base_uri' => $this->ac->baseUrl(),
             'verify' => false 
     	]);
     }
 
     public function post(String $endpoint, array $data){
-
+ 
         try {
 
-            $response = $this->client->request('POST', $this->buildEndpoint($endpoint),['form_params' => $data['contact']]);  
+            $response = $this->client->request('POST', $this->buildEndpoint($endpoint),['form_params' => $data]);  
             return json_decode($response->getBody());
             
         }catch(Exception $e) {
